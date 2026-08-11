@@ -1,0 +1,41 @@
+# Environment variables
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Pyrefly / type checkers
+.pyrefly/
+pyrightconfig.json
+
+# FAISS index (large binary — regenerate with build_index.py)
+faiss_index/
+
+# Private resume data — DO NOT commit
+data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp files
+tempCodeRunnerFile.py
+*.log
