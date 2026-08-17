@@ -13,7 +13,8 @@ from Langgraph_rag_backend import (
 # =========================== Utilities ===========================
 def generate_thread_id():
     return uuid.uuid4()
-
+    
+#adding reset with thread
 
 def reset_chat():
     thread_id = generate_thread_id()
@@ -135,7 +136,18 @@ if user_input:
                         )
 
                 if isinstance(message_chunk, AIMessage):
-                    yield message_chunk.content
+                    content = message_chunk.content
+
+                    if isinstance(content, str):
+                        yield content
+
+                    elif isinstance(content, list):
+                        text = "".join(
+                            item.get("text", "")
+                            for item in content
+                            if isinstance(item, dict)
+                        )
+                        yield text
 
         ai_message = st.write_stream(ai_only_stream())
 
